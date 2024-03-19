@@ -34,7 +34,7 @@ const editData = (data) => {
                             <template #cell(id)="{ value, item }">
                                 <div class="flex flex-row gap-2 justify-center">
                                     <Link :href="route('cargos.edit', value)">
-                                    <SecondaryButton>Editar</SecondaryButton>
+                                    <SecondaryButton>Documentos</SecondaryButton>
                                     </Link>
                                 </div>
                             </template>

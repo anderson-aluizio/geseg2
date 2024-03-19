@@ -40,7 +40,7 @@ const submit = () => {
                 </div>
             </div>
             <table class="min-w-full divide-y divide-gray-200 w-full">
-                <thead class="bg-sky-600 font-bold text-white">
+                <thead class="bg-[#bc272d] font-bold text-white">
                     <tr>
                         <th class="py-2 px-6 text-sm text-left border border-y-1">Documento</th>
                         <th class="py-2 px-6 text-sm w-24 text-center">#</th>
