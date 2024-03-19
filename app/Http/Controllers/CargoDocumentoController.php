@@ -20,7 +20,7 @@ class CargoDocumentoController extends Controller
             'documento_id' => ['required', 'exists:App\Models\Documento,id']
         ])['documento_id'];
         if ($cargo->documentos()->where('documento_id', $documentoId)->exists()) {
-            BannerMessage::message("Esta documento já foi cadastrada", "danger");
+            BannerMessage::message("Este registro já foi cadastrado", "danger");
             return Redirect::back();
         }
 

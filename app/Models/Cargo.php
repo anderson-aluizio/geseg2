@@ -13,6 +13,6 @@ class Cargo extends Model
 
     public function documentos()
     {
-        return $this->hasMany(Documento::class);
+        return $this->belongsToMany(Documento::class)->withTimestamps();
     }
 }

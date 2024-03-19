@@ -24,7 +24,7 @@ return new class extends Migration
         });
 
         CreateCustomPermission::findOrCreate('cargo.visualizar', 'cadastro');
-        CreateCustomPermission::findOrCreate('cargo.cadastro', 'cadastro');
+        CreateCustomPermission::findOrCreate('cargo.vincular_documento', 'cadastro');
     }
 
     /**

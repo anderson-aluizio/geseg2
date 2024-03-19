@@ -10,6 +10,8 @@ return new class extends Migration
     {
         Schema::create('cargo_documento', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('cargo_id')->index();
+            $table->bigInteger('documento_id')->index();
             $table->timestamps();
         });
     }

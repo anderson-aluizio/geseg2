@@ -10,7 +10,7 @@ import Select from '@/Components/Select.vue';
 const emit = defineEmits(['closed']);
 
 const props = defineProps({
-    pergunta: Object,
+    cargo: Object,
     documentos: Array,
 });
 
@@ -19,7 +19,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.put(route('pergunta-documento.store', props.pergunta.id));
+    form.put(route('cargo-documento.store', props.cargo.id));
 }
 </script>
 
@@ -42,30 +42,24 @@ const submit = () => {
             <table class="min-w-full divide-y divide-gray-200 w-full">
                 <thead class="bg-sky-600 font-bold text-white">
                     <tr>
-                        <th class="py-2 px-6 text-sm text-left border border-y-1">documento</th>
+                        <th class="py-2 px-6 text-sm text-left border border-y-1">Documento</th>
                         <th class="py-2 px-6 text-sm w-24 text-center">#</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    <tr v-if="!pergunta.documentos">
+                    <tr v-if="!cargo.documentos">
                         <td colspan="2" class="py-2 px-3 text-center bg-gray-300">
                             Nenhum
                             registro
                             encontrado</td>
                     </tr>
-                    <tr v-else v-for="documento in pergunta.documentos"
-                        class="hover:bg-gray-100 focus-within:bg-gray-100">
+                    <tr v-else v-for="documento in cargo.documentos" class="hover:bg-gray-100 focus-within:bg-gray-100">
                         <td class="px-6 py-2 whitespace-nowrap">
                             <div class="text-sm leading-5 text-gray-900">{{ documento.nome }}</div>
                         </td>
                         <td class="px-6 py-2 flex flex-row justify-between items-center gap-2">
-                            <Tooltip description="Editar documento">
-                                <Link :href="route('documentos.edit', documento.id)">
-                                <SecondaryButton>Editar</SecondaryButton>
-                                </Link>
-                            </Tooltip>
                             <DestroyButton label="Excluir" :identificador="documento.id" descricao
-                                :rota="route('pergunta-documento.delete', documento.pivot.pergunta_id)"
+                                :rota="route('cargo-documento.delete', documento.pivot.cargo_id)"
                                 :otherParams="{ documento_id: documento.id }" />
                         </td>
                     </tr>

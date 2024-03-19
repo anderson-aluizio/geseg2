@@ -35,7 +35,7 @@ class CargoController extends Controller
     public function edit(Cargo $cargo)
     {
         return Inertia::render('Cargos/Edit', [
-            'cargo' => $cargo,
+            'cargo' => $cargo->load('documentos'),
             'documentos' => Documento::whereDoesntHave('cargos', fn ($query) => $query->where('cargo_id', $cargo->id))->ativos()->get(),
         ]);
     }

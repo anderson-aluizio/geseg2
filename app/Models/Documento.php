@@ -26,7 +26,7 @@ class Documento extends Model
 
     public function scopeAtivos($query)
     {
-        $query->where('state', DefaultStateEnum::ATIVO);
+        $query->where('status', DefaultStateEnum::ATIVO);
     }
 
     public function cargos()

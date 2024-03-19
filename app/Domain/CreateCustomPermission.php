@@ -16,6 +16,11 @@ class CreateCustomPermission
                 ->where('id', $permission->id)
                 ->update(['group_name' => $groupName]);
         }
+
+        app()['cache']->forget('spatie.role.cache');
+        app()['cache']->forget('spatie.permission.cache');
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+
         Role::findOrCreate('Admin', 'web')->givePermissionTo(Permission::all());
         return $permission;
     }

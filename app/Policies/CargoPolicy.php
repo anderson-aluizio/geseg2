@@ -12,10 +12,16 @@ class CargoPolicy
 
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('cargo.cadastro') || $user->hasPermissionTo('cargo.visualizar');
+        return $user->hasPermissionTo('cargo.visualizar');
     }
-    public function view(User $user)
+
+    public function create(User $user)
     {
-        return $user->hasPermissionTo('cargo.cadastro') || $user->hasPermissionTo('cargo.visualizar');
+        return $user->hasPermissionTo('cargo.vincular_documento');
+    }
+
+    public function update(User $user)
+    {
+        return $user->hasPermissionTo('cargo.vincular_documento');
     }
 }
