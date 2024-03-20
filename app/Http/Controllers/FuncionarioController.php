@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use AndersonNogueira\Datatable\DataTable;
-use App\Enum\FuncionarioSituacaoEnum;
 use App\Models\Cargo;
 use App\Models\CentroCusto;
-use App\Models\CentroCustoAnalitico;
+use App\Models\DocumentoFuncionario;
 use App\Models\Funcionario;
-use App\Services\BannerMessage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class FuncionarioController extends Controller
@@ -78,6 +75,7 @@ class FuncionarioController extends Controller
     {
         return Inertia::render('Funcionarios/Show', [
             'funcionario' => $funcionario->load('cargo', 'centroCusto', 'centroCustoAnalitico'),
+            'documentos' => DocumentoFuncionario::with(['criador', 'pesquisa'])->where('funcionario_id', $funcionario->id)->vencidosEAVencer()->orderBy('prazo_final', 'desc')->get(),
         ]);
     }
 }

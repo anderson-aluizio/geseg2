@@ -4,9 +4,11 @@ import DashboardAppLayout from '@/Layouts/DashboardAppLayout.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import DateField from '@/Components/DateField.vue';
+import Documentos from './Documentos.vue';
 
 const props = defineProps({
     funcionario: Object,
+    documentos: Array,
     superiorFuncionarios: Array,
 });
 </script>
@@ -75,6 +77,7 @@ const props = defineProps({
                     </div>
                 </div>
 
+                <Documentos :documentos="documentos" :funcionario="funcionario" />
             </div>
         </div>
     </DashboardAppLayout>
