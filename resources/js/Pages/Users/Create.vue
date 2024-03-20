@@ -30,7 +30,7 @@ const submit = () => {
         <template #header>
             <div class="flex justify-between items-center">
                 <div>
-                    <h2 class="font-semibold text-xl py-2">Novo usuário</h2>
+                    <h2 class="text-2xl">Novo usuário</h2>
                 </div>
                 <div class="float-right">
                     <Link :href="route('users.index')">
@@ -53,20 +53,22 @@ const submit = () => {
                                 </div>
                                 <div class="col-span-3 md:col-span-1">
                                     <InputLabel for="funcionario_id" value="Colaborador" />
-                                    <Select id="funcionario_id" primary-key="id" label="nome" v-model="form.funcionario_id"
-                                        action-search="funcionarios" class="mt-1 block w-full">
+                                    <Select id="funcionario_id" primary-key="id" label="nome"
+                                        v-model="form.funcionario_id" action-search="funcionarios"
+                                        class="mt-1 block w-full">
                                     </Select>
                                 </div>
                                 <div class="col-span-3 md:col-span-1">
                                     <InputLabel for="role_id" value="Grupo de Acesso" />
-                                    <Select id="role_id" primary-key="id" label="name" v-model="form.role_id" :items="roles"
-                                        class="mt-1 block w-full">
+                                    <Select id="role_id" primary-key="id" label="name" v-model="form.role_id"
+                                        :items="roles" class="mt-1 block w-full">
                                     </Select>
                                 </div>
                                 <div class="col-span-3">
                                     <InputLabel for="centro_custos" value="Centros de Custos" />
-                                    <Select id="centro_custos" primary-key="id" label="nome" v-model="form.centro_custos"
-                                        :items="centroCustos" :multiple="true" class="mt-1 block w-full">
+                                    <Select id="centro_custos" primary-key="id" label="nome"
+                                        v-model="form.centro_custos" :items="centroCustos" :multiple="true"
+                                        class="mt-1 block w-full">
                                     </Select>
                                 </div>
                             </div>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('documento_pai_id')->nullable()->index();
             $table->bigInteger('prazo_em_dias')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
         CreateCustomPermission::findOrCreate('documentos.cadastro', 'cadastro');
     }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AccessControlController;
 use App\Http\Controllers\CargoController;
 use App\Http\Controllers\CargoDocumentoController;
 use App\Http\Controllers\DocumentoController;
+use App\Http\Controllers\DocumentoFuncionarioController;
 use App\Http\Controllers\ExportarXlsxController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ImagemViewController;
@@ -44,4 +45,7 @@ Route::middleware([
     Route::resource('cargos', CargoController::class)->only('index', 'edit');
     Route::put('cargo-documento/store/{cargo}', [CargoDocumentoController::class, 'store'])->name('cargo-documento.store');
     Route::delete('cargo-documento/delete/{cargo}', [CargoDocumentoController::class, 'delete'])->name('cargo-documento.delete');
+
+    Route::get('documento-funcionarios/{funcionario}', [DocumentoFuncionarioController::class, 'index'])->name('documento-funcionarios.index');
+    Route::resource('documento-funcionarios', DocumentoFuncionarioController::class)->only('update', 'store');
 });

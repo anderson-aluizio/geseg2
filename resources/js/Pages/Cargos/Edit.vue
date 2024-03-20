@@ -34,7 +34,7 @@ const submit = () => {
         <template #header>
             <div class="flex justify-between items-center">
                 <div>
-                    <h2 class="font-semibold text-xl py-2">Editar cargo</h2>
+                    <h2 class="text-2xl">Editar cargo</h2>
                 </div>
                 <div class="float-right">
                     <Link :href="route('cargos.index')">

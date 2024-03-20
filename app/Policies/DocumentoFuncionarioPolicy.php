@@ -2,44 +2,17 @@
 
 namespace App\Policies;
 
-use App\Models\DocumentoFuncionario;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class DocumentoFuncionarioPolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
-        //
+        return $user->hasPermissionTo('colaborador.visualizar_documentos') || $user->hasPermissionTo('colaborador.cadastrar_documentos');
     }
 
-    public function view(User $user, DocumentoFuncionario $documentoFuncionario): bool
+    public function view(User $user)
     {
-        //
-    }
-
-    public function create(User $user): bool
-    {
-        //
-    }
-
-    public function update(User $user, DocumentoFuncionario $documentoFuncionario): bool
-    {
-        //
-    }
-
-    public function delete(User $user, DocumentoFuncionario $documentoFuncionario): bool
-    {
-        //
-    }
-
-    public function restore(User $user, DocumentoFuncionario $documentoFuncionario): bool
-    {
-        //
-    }
-
-    public function forceDelete(User $user, DocumentoFuncionario $documentoFuncionario): bool
-    {
-        //
+        return $user->hasPermissionTo('colaborador.visualizar_documentos') || $user->hasPermissionTo('colaborador.cadastrar_documentos');
     }
 }

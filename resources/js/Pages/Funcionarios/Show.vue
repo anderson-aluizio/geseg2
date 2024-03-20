@@ -2,7 +2,6 @@
 import { Link } from '@inertiajs/vue3';
 import DashboardAppLayout from '@/Layouts/DashboardAppLayout.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import DateField from '@/Components/DateField.vue';
 import Documentos from './Documentos.vue';
 
@@ -18,7 +17,7 @@ const props = defineProps({
         <template #header>
             <div class="flex justify-between items-center">
                 <div>
-                    <h2 class="font-semibold text-xl py-2">Detalhe Colaborador</h2>
+                    <h2 class="text-2xl">Detalhe Colaborador</h2>
                 </div>
                 <div class="float-right flex flex-row gap-2">
                     <Link :href="route('funcionarios.index')">

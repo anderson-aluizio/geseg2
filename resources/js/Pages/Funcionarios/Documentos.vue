@@ -13,7 +13,8 @@ const props = defineProps({
     <div class="bg-white  shadow-sm sm:rounded-lg my-5">
         <div class="p-1 text-xl font-bold text-center">Documentos</div>
         <div class="text-center text-gray-500">Exibido somente vencidos e a vencer, para visualizar todos
-            <Link class="text-blue-600 hover:cursor-pointer hover:underline" href="">
+            <Link class="text-blue-600 hover:cursor-pointer hover:underline"
+                :href="route('documento-funcionarios.index', funcionario.id)">
             clique aqui
             </Link>
         </div>

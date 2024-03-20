@@ -35,7 +35,7 @@ const submit = () => {
         <template #header>
             <div class="flex justify-between items-center">
                 <div>
-                    <h2 class="font-semibold text-xl py-2">Editar usuário</h2>
+                    <h2 class="text-2xl">Editar usuário</h2>
                 </div>
                 <div class="float-right">
                     <Link :href="route('users.index')">
@@ -58,26 +58,27 @@ const submit = () => {
                                 </div>
                                 <div class="col-span-2 md:col-span-1">
                                     <InputLabel for="funcionario_id" value="Colaborador" />
-                                    <Select id="funcionario_id" primary-key="id" label="nome" v-model="form.funcionario_id"
-                                        action-search="funcionarios" class="mt-1 block w-full"
-                                        :initial-value="user.funcionario" />
+                                    <Select id="funcionario_id" primary-key="id" label="nome"
+                                        v-model="form.funcionario_id" action-search="funcionarios"
+                                        class="mt-1 block w-full" :initial-value="user.funcionario" />
                                 </div>
                                 <div class="col-span-2 md:col-span-1">
                                     <InputLabel for="role_id" value="Grupo de Acesso" />
-                                    <Select id="role_id" primary-key="id" label="name" v-model="form.role_id" :items="roles"
-                                        class="mt-1 block w-full" />
+                                    <Select id="role_id" primary-key="id" label="name" v-model="form.role_id"
+                                        :items="roles" class="mt-1 block w-full" />
                                     <HelpText
                                         message="Caso este campo seja alterado, o usuário precisará logar novamente" />
                                 </div>
                                 <div class="col-span-2 md:col-span-1">
                                     <InputLabel for="state" value="Status" />
-                                    <Select id="state" primary-key="id" label="name" v-model="form.state" :items="states"
-                                        class="mt-1 block w-full" />
+                                    <Select id="state" primary-key="id" label="name" v-model="form.state"
+                                        :items="states" class="mt-1 block w-full" />
                                 </div>
                                 <div class="col-span-2">
                                     <InputLabel for="centro_custos" value="Centros de Custos" />
-                                    <Select id="centro_custos" primary-key="id" label="nome" v-model="form.centro_custos"
-                                        :items="centroCustos" :multiple="true" class="mt-1 block w-full" />
+                                    <Select id="centro_custos" primary-key="id" label="nome"
+                                        v-model="form.centro_custos" :items="centroCustos" :multiple="true"
+                                        class="mt-1 block w-full" />
                                 </div>
                             </div>
                         </div>

@@ -13,6 +13,9 @@ const props = defineProps({
 
 <template>
     <DashboardAppLayout title="Colaboradores">
+        <template #header>
+            <h2 class="text-2xl">Lista de Colaboradores</h2>
+        </template>
         <div class="py-12">
             <div class="mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
