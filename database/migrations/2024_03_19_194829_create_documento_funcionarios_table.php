@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('obs')->nullable();
             $table->bigInteger('created_by')->index();
             $table->bigInteger('updated_by')->index();
-            $table->bigInteger('deleted_by')->index();
+            $table->bigInteger('deleted_by')->index()->nullable();
             $table->string('status')->default(DocumentoFuncionarioStatusEnum::PENDENTE->value)->index();
             $table->timestamps();
             $table->softDeletes();

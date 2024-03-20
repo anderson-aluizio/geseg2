@@ -7,7 +7,9 @@ use App\Enum\DefaultStateEnum;
 use App\Models\Documento;
 use App\Models\DocumentoFuncionario;
 use App\Models\Funcionario;
+use App\Services\BannerMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class DocumentoFuncionarioController extends Controller
@@ -53,5 +55,8 @@ class DocumentoFuncionarioController extends Controller
         $validatedRequest['funcionario_cpf'] = Funcionario::find($validatedRequest['funcionario_id'])->cpf;
         $validatedRequest['identificador'] = DocumentoFuncionario::where('documento_id', $validatedRequest['documento_id'])
             ->where('funcionario_id', $validatedRequest['funcionario_id'])->count() + 1;
+        DocumentoFuncionario::create($validatedRequest);
+        BannerMessage::message('Registro cadastrado com sucesso!');
+        return Redirect::back();
     }
 }

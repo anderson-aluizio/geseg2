@@ -4,7 +4,6 @@ import DataTable from '@/Components/DataTable/DataTable.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import Create from './Create.vue';
-import Edit from './Edit.vue';
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 
@@ -16,13 +15,6 @@ const props = defineProps({
 });
 
 const showCreateForm = ref(false);
-const selectedData = ref({});
-const showEditForm = ref(false);
-
-const editData = (data) => {
-    selectedData.value = data;
-    showEditForm.value = true;
-}
 
 </script>
 
@@ -42,8 +34,6 @@ const editData = (data) => {
         </template>
         <Create :showDialog="showCreateForm" @closed="showCreateForm = false" :documentos="documentos"
             :funcionario="funcionario" />
-        <Edit v-if="showEditForm" :showDialog="showEditForm" :documento="selectedData" :statuses="statuses"
-            :documentos="documentos" @closed="showEditForm = false" />
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -57,7 +47,7 @@ const editData = (data) => {
                                 <PrimaryButton @click="showCreateForm = true">Adicionar</PrimaryButton>
                             </template>
                             <template #cell(id)="{ value, item }">
-                                <SecondaryButton @click="editData(item)">Editar</SecondaryButton>
+                                <SecondaryButton>Visualizar</SecondaryButton>
                             </template>
                         </DataTable>
                     </div>
